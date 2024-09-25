@@ -5,6 +5,8 @@ import { setSelectedProduct } from "../redux/slices/productSlice";
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
 import { addToBasket, calculateBasket } from "../redux/slices/basketSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function ProductDetails() {
@@ -65,9 +67,29 @@ const getProductById=()=>{
                 <CiCirclePlus  onClick={increment} style={{fontSize:"40px",marginLeft:"5px"}}/>
             </div>
             <div>
-                <button 
-                onClick={addBasket}
-                style={{marginTop:"25px",border:"none",padding:"15px",backgroundColor:"darkcyan",color:"antiquewhite",borderRadius:"5px"}}>Sepete Ekle</button>
+            <button 
+    onClick={() => {
+        addBasket();
+        toast.success('Ürün sepete eklendi!', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }}
+    style={{
+        marginTop: "25px",
+        border: "none",
+        padding: "15px",
+        backgroundColor: "darkcyan",
+        color: "antiquewhite",
+        borderRadius: "5px"
+    }}>
+    Sepete Ekle
+</button>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ import Drawer from '@mui/material/Drawer';
 import { useDispatch, useSelector } from 'react-redux'
 import { calculateBasket, setDrawer } from './redux/slices/basketSlice'
 import { useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const {products,drawer,totalAmount}=useSelector((store)=>store.basket);
@@ -19,6 +20,7 @@ function App() {
   return (
     
       <div>
+        <ToastContainer />
         <PageContainer>
           <Loading/>
           <Header/>
