@@ -2,6 +2,9 @@
     width:60px;
     height: 60px;
 }
+.logo:hover{
+    cursor: pointer;
+}
 .search-input{
     border:none;
     border-bottom:1px solid lightgray;
