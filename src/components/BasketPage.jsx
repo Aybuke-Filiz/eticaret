@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { calculateBasket, removeFromBasket, setBasket } from '../redux/slices/basketSlice';
 import { toast } from 'react-toastify';
