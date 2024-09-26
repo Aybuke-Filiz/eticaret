@@ -11,6 +11,7 @@ import { setDrawer } from "../redux/slices/basketSlice";
 import { toast } from "react-toastify";
 import { Drawer } from "@mui/material";
 
+
 function Header() {
     const [theme, setTheme] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
@@ -76,7 +77,7 @@ function Header() {
                     <CiSearch onClick={handleSearch} />
                     {theme ? <FaRegMoon onClick={changeTheme} /> : <CiLight onClick={changeTheme} />}
                     <Badge onClick={() => dispatch(setDrawer())} badgeContent={basketProducts.length} color="success">
-                        <CiShoppingBasket style={{ marginRight: "6px" }} />
+                        <CiShoppingBasket onClick={() => navigate("/basket") }style={{ marginRight: "6px" }} />
                     </Badge>
                 </div>
             </div>
