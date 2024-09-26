@@ -26,7 +26,7 @@ export const productSlice= createSlice({
             state.selectedProduct=action.payload;
 
         }
-
+        
     },
     extraReducers:(builder)=>{
         builder

@@ -38,6 +38,7 @@ function App() {
     localStorage.clear(); 
     dispatch(setBasket([])); 
     dispatch(setDrawer()); 
+    dispatch(calculateBasket());
     toast.success("Sepetiniz tamamlandı!", {
       position: "top-right",
       autoClose: 3000,
@@ -87,7 +88,7 @@ function App() {
                 color: "white", 
                 border: "none", 
                 borderRadius: "5px", 
-                cursor: "pointer" 
+                cursor: products.length === 0 ? "not-allowed" : "pointer"
               }}>
               Sepeti Tamamla
             </button>
