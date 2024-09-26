@@ -35,8 +35,18 @@ export const basketSlice=createSlice({
                 state.products=[...state.products,action.payload];
                 writeFromBasketToStorage(state.products);
             }
-            
-
+        
+        },
+        removeFromBasket: (state, action) => {
+            const findProduct = state.products && state.products.find((product) => product.id === action.payload.id);
+            if (findProduct) {
+                if (findProduct.count > 1) {
+                    findProduct.count -= 1;  
+                } else {
+                    state.products = state.products.filter((product) => product.id !== action.payload.id);  
+                }
+                writeFromBasketToStorage(state.products);
+            }
         },
         setDrawer:(state)=>{
             state.drawer=!state.drawer;
@@ -47,9 +57,13 @@ export const basketSlice=createSlice({
                 state.totalAmount+=product.price*product.count;
             })
 
+        },
+        setBasket: (state, action) => {
+            state.products = action.payload; 
+            writeFromBasketToStorage(state.products); 
         }
     }
 })
-export const { addToBasket,setDrawer,calculateBasket} = basketSlice.actions
+export const { addToBasket,setDrawer,calculateBasket,removeFromBasket,setBasket} = basketSlice.actions
 
 export default basketSlice.reducer
