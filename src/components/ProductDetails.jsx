@@ -80,13 +80,15 @@ const getProductById=()=>{
             progress: undefined,
         });
     }}
+    disabled={products.length === 0 || count === 0}
     style={{
         marginTop: "25px",
         border: "none",
         padding: "15px",
-        backgroundColor: "darkcyan",
+        backgroundColor: products.length === 0 || count === 0 ? "gray" : "darkcyan",
         color: "antiquewhite",
-        borderRadius: "5px"
+        borderRadius: "5px",
+        cursor: products.length === 0 ? "not-allowed" : "pointer"
     }}>
     Sepete Ekle
 </button>

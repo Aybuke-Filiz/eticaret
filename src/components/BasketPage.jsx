@@ -4,6 +4,7 @@ import { calculateBasket, removeFromBasket, setBasket } from '../redux/slices/ba
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+
 const BasketPage = () => {
   const { products, totalAmount } = useSelector((store) => store.basket);
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const BasketPage = () => {
     localStorage.clear(); 
     dispatch(setBasket([])); 
     dispatch(calculateBasket());
-    toast.success("Sepetiniz tamamlandı!", {
+    toast.success("Tebrikler! Siparişiniz oluşturuldu.", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -40,10 +41,10 @@ const BasketPage = () => {
 
   return (
     <div className="basket-page">
-      <h1>Sepetiniz</h1>
+      <h1 style={{fontWeight:"bold",color:"#8B0000",fontFamily:"arial",fontSize:"50px"}}>SEPETİNİZ</h1>
       <div className='flex-column'>
         {products.length === 0 ? (
-          <p>Sepetiniz boş.</p>
+          <p style={{color:"#191970",fontFamily:"arial",fontSize:"30px"}}>Sepetiniz boş!</p>
         ) : (
           products.map((product) => (
             <div key={product.id} className='flex-row' style={{ padding: "20px" }}>
@@ -58,14 +59,15 @@ const BasketPage = () => {
             </div>
           ))
         )}
-        <p style={{ textAlign: "center", fontWeight: "bold" }}>Toplam Tutar: {totalAmount}$</p>
+        <p style={{ textAlign: "center", fontWeight: "bold" ,fontFamily:"arial",color:"Highlight",fontSize:"20px"}}>Toplam Tutar: {totalAmount}$</p>
         <button 
           onClick={handleCompleteOrder} 
+          disabled={products.length === 0}
           style={{ 
             textAlign: "center", 
             margin: "20px auto", 
             padding: "10px 20px", 
-            backgroundColor: "darkcyan", 
+            backgroundColor: products.length === 0 ? "gray" : "darkcyan", 
             color: "white", 
             border: "none", 
             borderRadius: "5px", 

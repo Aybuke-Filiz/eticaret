@@ -74,7 +74,8 @@ function Header() {
                     onChange={(e) => setSearchTerm(e.target.value)} 
                 />
                 <div className="icon">
-                    <CiSearch onClick={handleSearch} />
+                    <CiSearch onClick={handleSearch}
+                />
                     {theme ? <FaRegMoon onClick={changeTheme} /> : <CiLight onClick={changeTheme} />}
                     <Badge onClick={() => dispatch(setDrawer())} badgeContent={basketProducts.length} color="success">
                         <CiShoppingBasket onClick={() => navigate("/basket") }style={{ marginRight: "6px" }} />

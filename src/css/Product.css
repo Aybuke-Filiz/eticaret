@@ -1,6 +1,6 @@
 .image{
     width: 180px;
-    height: 210px;
+    height: 200px;
 }
 .card{
     width:200px;
@@ -12,10 +12,13 @@
 }
 .title{
     text-align: center;
-    height: 80px;
+    height: 70px;
+    color: #4b5358;
+    
 }
 .price{
     text-align: center;
+   
 }
 .card:hover{
     box-shadow: 1px 4px 3px rgb(73, 73, 73);
